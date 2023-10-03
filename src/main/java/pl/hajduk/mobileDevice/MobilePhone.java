@@ -4,7 +4,7 @@ public class MobilePhone extends MobileDevice {
 
     boolean lteSupport;
 
-    public MobilePhone(int resolution, int ram, String cpu, String os, String type, boolean lteSupport) {
+    public MobilePhone(int resolution, int ram, String cpu, String os, Enum type, boolean lteSupport) {
         super(resolution, ram, cpu, os, type);
         this.lteSupport = lteSupport;
     }
