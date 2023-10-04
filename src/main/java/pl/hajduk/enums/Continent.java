@@ -21,14 +21,6 @@ enum Continent {
         this.surfaceArea = surfaceArea;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public long getSurfaceArea() {
-        return surfaceArea;
-    }
-
 
     public static Enum largestContinent()
     {
