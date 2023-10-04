@@ -2,6 +2,7 @@ package pl.hajduk.enums;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 enum Continent {
@@ -21,43 +22,30 @@ enum Continent {
         this.surfaceArea = surfaceArea;
     }
 
-
-    public static Enum largestContinent()
-    {
-        List<Enum>continents=enumArray();
-
-
-        Enum largest=continents.get(0);
-
-
-        return largest;
+    public String getName() {
+        return name;
     }
 
-    public static Enum smallestContinent()
-    {
-        List<Enum>continents=enumArray();
-
-
-        Enum smallest=continents.get(continents.size()-1);
-
-
-        return smallest;
+    public long getSurfaceArea() {
+        return surfaceArea;
     }
 
-    private static List<Enum> enumArray()
-    {
-        List<Enum>continents=new ArrayList<>();
-        continents.add(NORTH_AMERICA);
-        continents.add(SOUTH_AMERICA);
-        continents.add(EUROPE);
-        continents.add(ASIA);
-        continents.add(AFRICA);
-        continents.add(ANTARCTICA);
-        continents.add(AUSTRALIA);
-        Collections.sort(continents);
+    public static Continent largestContinent() {
+        List<Continent> continents = enumList();
+        return continents.get(continents.size() - 1);
+    }
+
+    public static Continent smallestContinent() {
+        List<Continent> continents = enumList();
+        return continents.get(0);
+    }
+
+    private static List<Continent> enumList() {
+        List<Continent> continents = new ArrayList<>();
+        Collections.addAll(continents, values());
+
+        continents.sort(Comparator.comparingLong(Continent::getSurfaceArea));
+
         return continents;
     }
-
-
 }
-
